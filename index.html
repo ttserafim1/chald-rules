@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chald Studio - Правила сервера</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Rubik', sans-serif;
+            background-color: #0a192f;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #00c6ff, #0072ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .rule-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 198, 255, 0.3);
+        }
+        
+        .nav-link:hover {
+            background: linear-gradient(90deg, rgba(0, 198, 255, 0.1), rgba(0, 114, 255, 0.1));
+        }
+        
+        .scroll-down {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+    </style>
+</head>
+<body class="text-gray-200">
+    <!-- Title only -->
+    <div class="py-4 px-4 sm:px-6 lg:px-8">
+        <span class="text-2xl font-bold gradient-text">CHALD STUDIO</span>
+    </div>
+
+    <!-- Герой секция -->
+    <div class="relative pt-24 pb-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-teal-900/20 to-teal-900/50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-6">
+                    <span class="gradient-text">Правила сервера</span>
+                </h1>
+                <p class="max-w-3xl mx-auto text-lg md:text-xl text-teal-200">
+                    Ознакомьтесь с правилами нашего сервера Chald Studio, чтобы обеспечить честную и приятную игру для всех участников.
+                </p>
+                <div class="mt-10 scroll-down">
+                    <a href="#rules" class="text-teal-300 hover:text-white animate-bounce">
+                        <i class="fas fa-chevron-down text-3xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Основные правила -->
+    <div id="rules" class="py-16 px-4 sm:px-6 lg:px-8 bg-teal-900/10">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 gradient-text">Основные правила</h2>
+                <div class="w-24 h-1 bg-teal-500 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Карточка правила 1 -->
+                <div class="rule-card bg-teal-900/50 rounded-lg p-6 border border-teal-700/50 transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-teal-800/50 p-3 rounded-full mr-4">
+                            <i class="fas fa-ban text-teal-300 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white">Читы и эксплоиты</h3>
+                    </div>
+                    <p class="text-teal-200">
+                        Использование любых читов, эксплоитов или багов игры строго запрещено. Нарушение этого правила приведёт к перманентному бану.
+                    </p>
+                </div>
+                
+                <!-- Карточка правила 2 -->
+                <div class="rule-card bg-teal-900/50 rounded-lg p-6 border border-teal-700/50 transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-teal-800/50 p-3 rounded-full mr-4">
+                            <i class="fas fa-comment-slash text-teal-300 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white">Токсичность</h3>
+                    </div>
+                    <p class="text-teal-200">
+                        Оскорбления, расизм, дискриминация и любая другая форма токсичного поведения недопустимы. Уважайте других игроков.
+                    </p>
+                </div>
+                
+                <!-- Карточка правила 3 -->
+                <div class="rule-card bg-teal-900/50 rounded-lg p-6 border border-teal-700/50 transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-teal-800/50 p-3 rounded-full mr-4">
+                            <i class="fas fa-user-secret text-teal-300 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white">Мультиаккаунты</h3>
+                    </div>
+                    <p class="text-teal-200">
+                        Использование нескольких аккаунтов для получения преимущества запрещено. Обход бана через другой аккаунт приведёт к его блокировке.
+                    </p>
+                </div>
+                
+                <!-- Карточка правила 4 -->
+                <div class="rule-card bg-teal-900/50 rounded-lg p-6 border border-teal-700/50 transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-teal-800/50 p-3 rounded-full mr-4">
+                            <i class="fas fa-exchange-alt text-teal-300 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white">Торговля аккаунтами</h3>
+                    </div>
+                    <p class="text-teal-200">
+                        Продажа, покупка или обмен аккаунтами запрещены. Администрация не несёт ответственности за последствия таких сделок.
+                    </p>
+                </div>
+                
+                <!-- Карточка правила 5 -->
+                <div class="rule-card bg-teal-900/50 rounded-lg p-6 border border-teal-700/50 transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-teal-800/50 p-3 rounded-full mr-4">
+                            <i class="fas fa-bug text-teal-300 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white">Баг-репорты</h3>
+                    </div>
+                    <p class="text-teal-200">
+                        Обнаруженные баги должны быть немедленно сообщены администрации. Использование багов в личных целях наказуемо.
+                    </p>
+                </div>
+                
+                <!-- Карточка правила 6 -->
+                <div class="rule-card bg-teal-900/50 rounded-lg p-6 border border-teal-700/50 transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-teal-800/50 p-3 rounded-full mr-4">
+                            <i class="fas fa-users text-teal-300 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white">Командная игра</h3>
+                    </div>
+                    <p class="text-teal-200">
+                        Саботаж своей команды, умышленное проигрывание или иные действия во вред союзникам запрещены.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Раздел о модах -->
+    <div id="mods" class="py-16 px-4 sm:px-6 lg:px-8 bg-teal-900/20">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 gradient-text">Разрешённые и запрещённые моды</h2>
+                <div class="w-24 h-1 bg-teal-500 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Разрешённые моды -->
+                <div>
+                    <div class="bg-teal-900/50 rounded-lg p-6 border border-teal-700/50">
+                        <div class="flex items-center mb-6">
+                            <div class="bg-green-500/20 p-3 rounded-full mr-4">
+                                <i class="fas fa-check-circle text-green-400 text-xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-semibold text-white">Разрешённые моды</h3>
+                        </div>
+                        
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="bg-green-500/10 p-1 rounded-full">
+                                        <i class="fas fa-check text-green-400 text-sm"></i>
+                                    </div>
+                                </div>
+                                <p class="ml-3 text-teal-200">Оптимизационные моды (Optifine, Sodium и аналоги)</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="bg-green-500/10 p-1 rounded-full">
+                                        <i class="fas fa-check text-green-400 text-sm"></i>
+                                    </div>
+                                </div>
+                                <p class="ml-3 text-teal-200">Моды интерфейса (Inventory Tweaks, AppleSkin)</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="bg-green-500/10 p-1 rounded-full">
+                                        <i class="fas fa-check text-green-400 text-sm"></i>
+                                    </div>
+                                </div>
+                                <p class="ml-3 text-teal-200">Моды мини-карты (Xaero's Minimap, JourneyMap)</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="bg-green-500/10 p-1 rounded-full">
+                                        <i class="fas fa-check text-green-400 text-sm"></i>
+                                    </div>
+                                </div>
+                                <p class="ml-3 text-teal-200">Моды отображения FPS и координат</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="bg-green-500/10 p-1 rounded-full">
+                                        <i class="fas fa-check text-green-400 text-sm"></i>
+                                    </div>
+                                </div>
+                                <p class="ml-3 text-teal-200">Моды улучшения графики (Shader моды)</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Запрещённые моды -->
+                <div>
+                    <div class="bg-teal-900/50 rounded-lg p-6 border border-teal-700/50">
+                        <div class="flex items-center mb-6">
+                            <div class="bg-red-500/20 p-3 rounded-full mr-4">
+                                <i class="fas fa-times-circle text-red-400 text-xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-semibold text-white">Запрещённые моды</h3>
+                        </div>
+                        
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="bg-red-500/10 p-1 rounded-full">
+                                        <i class="fas fa-times text-red-400 text-sm"></i>
+                                    </div>
+                                </div>
+                                <p class="ml-3 text-teal-200">Replay Mod и аналогичные моды записи геймплея</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="bg-red-500/10 p-1 rounded-full">
+                                        <i class="fas fa-times text-red-400 text-sm"></i>
+                                    </div>
+                                </div>
+                                <p class="ml-3 text-teal-200">Моды автоматизации (AutoClicker, MacroMod)</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="bg-red-500/10 p-1 rounded-full">
+                                        <i class="fas fa-times text-red-400 text-sm"></i>
+                                    </div>
+                                </div>
+                                <p class="ml-3 text-teal-200">Моды X-Ray и аналогичные (позволяющие видеть сквозь блоки)</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="bg-red-500/10 p-1 rounded-full">
+                                        <i class="fas fa-times text-red-400 text-sm"></i>
+                                    </div>
+                                </div>
+                                <p class="ml-3 text-teal-200">Моды, дающие преимущество в PvP (BetterSprint, TriggerBot)</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="bg-red-500/10 p-1 rounded-full">
+                                        <i class="fas fa-times text-red-400 text-sm"></i>
+                                    </div>
+                                </div>
+                                <p class="ml-3 text-teal-200">Любые моды, изменяющие оригинальный геймплей</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 bg-teal-900/50 rounded-lg p-6 border border-teal-700/50">
+                <div class="flex items-center mb-4">
+                    <div class="bg-yellow-500/20 p-3 rounded-full mr-4">
+                        <i class="fas fa-exclamation-triangle text-yellow-400 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white">Важное примечание</h3>
+                </div>
+                <p class="text-teal-200">
+                    Администрация оставляет за собой право блокировать любые моды, которые, по их мнению, нарушают баланс игры или дают нечестное преимущество. 
+                    Если вы не уверены, разрешён ли конкретный мод на сервере, обратитесь к администрации за разъяснениями.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ -->
+    <div id="faq" class="py-16 px-4 sm:px-6 lg:px-8 bg-teal-900/10">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 gradient-text">Часто задаваемые вопросы</h2>
+                <div class="w-24 h-1 bg-teal-500 mx-auto"></div>
+            </div>
+            
+            <div class="space-y-6">
+                <!-- Вопрос 1 -->
+                <div class="bg-teal-900/50 rounded-lg p-6 border border-teal-700/50">
+                    <button class="faq-toggle w-full flex justify-between items-center text-left">
+                        <h3 class="text-lg font-semibold text-white">Что делать, если меня забанили по ошибке?</h3>
+                        <i class="fas fa-chevron-down text-teal-300 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content mt-4 hidden">
+                        <p class="text-teal-200">
+                            Если вы считаете, что бан был выдан ошибочно, вы можете подать апелляцию в нашем Discord-сервере. 
+                            Укажите свой никнейм, дату бана и подробное объяснение ситуации. Администрация рассмотрит ваш запрос в течение 3 рабочих дней.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Вопрос 2 -->
+                <div class="bg-teal-900/50 rounded-lg p-6 border border-teal-700/50">
+                    <button class="faq-toggle w-full flex justify-between items-center text-left">
+                        <h3 class="text-lg font-semibold text-white">Как проверить, не использует ли игрок запрещённые моды?</h3>
+                        <i class="fas fa-chevron-down text-teal-300 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content mt-4 hidden">
+                        <p class="text-teal-200">
+                            На сервере установлена система античита, которая автоматически обнаруживает большинство запрещённых модов. 
+                            Если вы подозреваете игрока в использовании читов, сделайте скриншот или запись и сообщите администрации. 
+                            Не обвиняйте игроков публично без доказательств.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Вопрос 3 -->
+                <div class="bg-teal-900/50 rounded-lg p-6 border border-teal-700/50">
+                    <button class="faq-toggle w-full flex justify-between items-center text-left">
+                        <h3 class="text-lg font-semibold text-white">Можно ли использовать моды, которые не указаны в списке?</h3>
+                        <i class="fas fa-chevron-down text-teal-300 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content mt-4 hidden">
+                        <p class="text-teal-200">
+                            Список модов не является исчерпывающим. Если мод не указан в списке запрещённых, это не означает, что он разрешён. 
+                            Любые моды, дающие преимущество перед другими игроками, могут быть расценены как нарушение. 
+                            В случае сомнений проконсультируйтесь с администрацией перед использованием.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Вопрос 4 -->
+                <div class="bg-teal-900/50 rounded-lg p-6 border border-teal-700/50">
+                    <button class="faq-toggle w-full flex justify-between items-center text-left">
+                        <h3 class="text-lg font-semibold text-white">Какие наказания предусмотрены за нарушение правил?</h3>
+                        <i class="fas fa-chevron-down text-teal-300 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content mt-4 hidden">
+                        <p class="text-teal-200">
+                            Наказания зависят от тяжести нарушения:
+                            <ul class="list-disc pl-5 mt-2 space-y-1 text-teal-200">
+                                <li>Первое нарушение: предупреждение или временный бан (1-7 дней)</li>
+                                <li>Повторное нарушение: временный бан (7-30 дней)</li>
+                                <li>Серьёзные нарушения (читы, эксплоиты): перманентный бан</li>
+                                <li>Обход бана: перманентный бан всех связанных аккаунтов</li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // Анимация FAQ
+        document.querySelectorAll('.faq-toggle').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                
+                content.classList.toggle('hidden');
+                icon.classList.toggle('transform');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+        
+        // Плавная прокрутка
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+    </script>
+</body>
+</html>
