@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -46,26 +47,154 @@
             }
         }
     </style>
+    <style>
+        .attention-banner {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            box-shadow: 0 2px 15px rgba(220, 38, 38, 0.3);
+            animation: attention-pulse 1.5s infinite alternate;
+        }
+        @keyframes attention-pulse {
+            0% { opacity: 0.9; }
+            100% { opacity: 1; }
+        }
+        .bg-gradient-teal-indigo {
+            background-image: linear-gradient(to right, #0d9488, #4338ca);
+        }
+        .rule-card {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .rule-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+        .rule-card:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+    </style>
 </head>
 <body class="text-gray-200">
-    <!-- Title only -->
-    <div class="py-4 px-4 sm:px-6 lg:px-8">
+    <style>
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: white }
+        }
+        .typing-effect {
+            overflow: hidden;
+            white-space: nowrap;
+            margin: 0 auto;
+            display: inline-block;
+            position: relative;
+            border-right: .15em solid white;
+            animation: 
+                typing 3s steps(40, end),
+                blink-caret .75s step-end infinite;
+        }
+        @keyframes attention-pop {
+            0% { transform: scale(0.8); opacity: 0 }
+            50% { transform: scale(1.05) }
+            100% { transform: scale(1); opacity: 1 }
+        }
+        .attention-pop {
+            animation: attention-pop 1s ease-out;
+        }
+    </style>
+
+    <!-- Minecraft server command animation -->
+    <div class="fixed inset-0 z-50 bg-black flex items-center justify-center">
+        <div class="max-w-4xl mx-auto w-full px-4">
+            <div class="bg-gray-900/90 p-6 rounded-lg border border-gray-700 font-mono">
+                <div id="typing-animation" class="typing-effect text-green-400">
+                    [10:42:15] [Server thread/INFO]: ban Player123 нарушение правил [10.06.2025]
+                </div>
+                <div id="attention-message" class="hidden mt-6 text-red-400 text-center attention-pop">
+                    <div class="text-4xl font-bold mb-4">[ВНИМАНИЕ!]</div>
+                    <div class="text-xl">
+                        Игрок <span class="text-white">Player123</span> заблокирован за нарушение правил!<br>
+                        Дата нарушения: <span class="text-white">10.06.2025</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                // Finish typing animation
+                document.getElementById('typing-animation').style.animation = 'none';
+                
+                setTimeout(() => {
+                    // Show attention message
+                    document.getElementById('attention-message').classList.remove('hidden');
+                    
+                    setTimeout(() => {
+                        // Create console suction effect
+                        const overlay = document.querySelector('.fixed.inset-0');
+                        overlay.style.transition = 'all 1s ease-out';
+                        overlay.style.transform = 'scale(0.1)';
+                        overlay.style.opacity = '0';
+                        overlay.style.filter = 'blur(20px)';
+                        
+                        // Show site content after animation
+                        setTimeout(() => {
+                            overlay.remove();
+                        }, 1000);
+                    }, 2000);
+                }, 1000);
+            }, 3000);
+        });
+    </script>
+
+    <!-- Title with logo -->
+    <div class="py-4 px-4 sm:px-6 lg:px-8 flex items-center">
+        <img src="https://i.postimg.cc/W1pmZyH5/image.png" alt="Logo" class="h-10 w-10 mr-3 rounded">
         <span class="text-2xl font-bold gradient-text">CHALD STUDIO</span>
     </div>
 
-    <!-- Герой секция -->
-    <div class="relative pt-24 pb-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-teal-900/20 to-teal-900/50">
-        <div class="max-w-7xl mx-auto">
+    <!-- New Hero Section -->
+    <div class="relative pt-16 pb-40 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-teal-900/20 to-indigo-900/30">
+        <div class="absolute inset-0 opacity-50" style="background-image: url('https://images.unsplash.com/photo-1605106702734-205df224ecce?q=80&w=2070&auto=format&fit=crop')"></div>
+        <div class="max-w-7xl mx-auto relative z-10">
             <div class="text-center">
+                <div class="inline-block bg-white/10 backdrop-blur-sm rounded-lg px-6 py-2 mb-6">
+                    <span class="text-teal-400 font-medium">Обновлено 10.06.2025 | Всего правил: 26</span>
+                </div>
                 <h1 class="text-4xl md:text-6xl font-extrabold mb-6">
-                    <span class="gradient-text">Правила сервера</span>
+                    <span class="gradient-text">Chald Studio</span>
                 </h1>
-                <p class="max-w-3xl mx-auto text-lg md:text-xl text-teal-200">
-                    Ознакомьтесь с правилами нашего сервера Chald Studio, чтобы обеспечить честную и приятную игру для всех участников.
+                <p class="max-w-3xl mx-auto text-xl md:text-2xl font-medium text-teal-100 mb-8">
+                    Вступая на наш сервер, вы соглашаетесь соблюдать эти правила
                 </p>
-                <div class="mt-10 scroll-down">
-                    <a href="#rules" class="text-teal-300 hover:text-white animate-bounce">
-                        <i class="fas fa-chevron-down text-3xl"></i>
+                
+                <div class="flex flex-col sm:flex-row justify-center gap-4 mb-10">
+                    <a href="#rules" class="bg-white/10 hover:bg-white/20 transition-colors text-white px-8 py-4 rounded-lg flex items-center justify-center gap-2 text-lg">
+                        <i class="fas fa-book"></i> Основные правила
+                    </a>
+                </div>
+                
+                <div class="mt-12 scroll-down">
+                    <a href="#rules" class="text-teal-300 hover:text-white animate-bounce inline-block">
+                        <div class="flex flex-col items-center">
+                            <i class="fas fa-chevron-down text-3xl"></i>
+                            <span class="text-sm mt-2">Изучить правила</span>
+                        </div>
                     </a>
                 </div>
             </div>
@@ -82,6 +211,222 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Карточка правила 1 -->
+                <!-- Добавленные правила -->
+                <div class="rule-card bg-teal-900/50 rounded-lg p-6 border border-teal-700/50 transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-teal-800/50 p-3 rounded-full mr-4">
+                            <i class="fas fa-shield-alt text-teal-300 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white">Защита базы</h3>
+                    </div>
+                    <p class="text-teal-200">
+                        Защищайте свою базу используя игрушки, обманки и любые доступные средства. Беззащитные базы - легкая добыча!
+                    </p>
+                </div>
+                
+                <div class="rule-card bg-teal-900/50 rounded-lg p-6 border border-teal-700/50 transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-teal-800/50 p-3 rounded-full mr-4">
+                            <i class="fas fa-money-bill-wave text-teal-300 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white">Продажа ресурсов</h3>
+                    </div>
+                    <p class="text-teal-200">
+                        Реальные деньги за внутриигровые предметы или валюту запрещены. Используйте только внутриигровую экономику.
+                    </p>
+                </div>
+                
+                <div class="rule-card bg-teal-900/50 rounded-lg p-6 border border-teal-700/50 transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-teal-800/50 p-3 rounded-full mr-4">
+                            <i class="fas fa-crown text-teal-300 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white">Подражание админам</h3>
+                    </div>
+                    <p class="text-teal-200">
+                        Использование ников, схожих с администрацией, и подражание её поведению строго запрещено.
+                    </p>
+                </div>
+                
+                <div class="rule-card bg-teal-900/50 rounded-lg p-6 border border-teal-700/50 transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-teal-800/50 p-3 rounded-full mr-4">
+                            <i class="fas fa-comments text-teal-300 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white">Спам</h3>
+                    </div>
+                    <p class="text-teal-200">
+                        Флуд, капслок и повторяющиеся сообщения в чате наказываются временным мьютом.
+                    </p>
+                </div>
+                
+                <div class="rule-card bg-teal-900/50 rounded-lg p-6 border border-teal-700/50 transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-teal-800/50 p-3 rounded-full mr-4">
+                            <i class="fas fa-server text-teal-300 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white">Лаги сервера</h3>
+                    </div>
+                    <p class="text-teal-200">
+                        Создание лагов (массовые генераторы, рельсовые системы) наказывается устранением причины и временным баном.
+                    </p>
+                </div>
+                
+                <div class="rule-card bg-teal-900/50 rounded-lg p-6 border border-teal-700/50 transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-teal-800/50 p-3 rounded-full mr-4">
+                            <i class="fas fa-mask text-teal-300 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white">Анонимность</h3>
+                    </div>
+                    <p class="text-teal-200">
+                        Использование VPN для сокрытия мультиаккаунтов запрещено. VPN разрешён только если честно указать причину.
+                    </p>
+                </div>
+                
+                <div class="rule-card bg-teal-900/50 rounded-lg p-6 border border-teal-700/50 transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-teal-800/50 p-3 rounded-full mr-4">
+                            <i class="fas fa-id-card text-teal-300 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white">Донат-привилегии</h3>
+                    </div>
+                    <p class="text-teal-200">
+                        Передача донат-привилегий другим игрокам запрещена. Продажа доната ведёт к потере статуса.
+                    </p>
+                </div>
+                
+                <div class="rule-card bg-teal-900/50 rounded-lg p-6 border border-teal-700/50 transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-teal-800/50 p-3 rounded-full mr-4">
+                            <i class="fas fa-laptop-code text-teal-300 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white">Скрипты</h3>
+                    </div>
+                    <p class="text-teal-200">
+                        Использование клиентских скриптов (авто-крафт, авто-фермы) расценивается как читы.
+                    </p>
+                </div>
+                
+                <div class="rule-card bg-teal-900/50 rounded-lg p-6 border border-teal-700/50 transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-teal-800/50 p-3 rounded-full mr-4">
+                            <i class="fas fa-language text-teal-300 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white">Оффтоп</h3>
+                    </div>
+                    <p class="text-teal-200">
+                        Обсуждение политики, религии и других провокационных тем за пределами специальных чатов запрещено.
+                    </p>
+                </div>
+                
+                <div class="rule-card bg-teal-900/50 rounded-lg p-6 border border-teal-700/50 transition duration-300">
+                    <div class="flex items center mb-4">
+                        <div class="bg-teal-800/50 p-3 rounded-full mr-4">
+                            <i class="fas fa-user-clock text-teal-300 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white">AFK</h3>
+                    </div>
+                    <p class="text-teal-200">
+                        Длительное нахождение в AFK без уважительной причины может привести к кику с сервера.
+                    </p>
+                </div>
+                
+                <div class="rule-card bg-teal-900/50 rounded-lg p-6 border border-teal-700/50 transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-teal-800/50 p-3 rounded-full mr-4">
+                            <i class="fas fa-id-badge text-teal-300 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white">Никнеймы</h3>
+                    </div>
+                    <p class="text-teal-200">
+                        Запрещены ники с нецензурщиной, оскорблениями или провокационным содержанием.
+                    </p>
+                </div>
+                
+                <div class="rule-card bg-teal-900/50 rounded-lg p-6 border border-teal-700/50 transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-teal-800/50 p-3 rounded-full mr-4">
+                            <i class="fas fa-map-marked-alt text-teal-300 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white">Территориальные споры</h3>
+                    </div>
+                    <p class="text-teal-200">
+                        Строительство вблизи чужих территорий (менее 100 блоков) без согласования запрещено.
+                    </p>
+                </div>
+                
+                <div class="rule-card bg-teal-900/50 rounded-lg p-6 border border-teal-700/50 transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-teal-800/50 p-3 rounded-full mr-4">
+                            <i class="fas fa-ghost text-teal-300 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white">Троллинг</h3>
+                    </div>
+                    <p class="text-teal-200">
+                        Умышленное провоцирование конфликтов и дезинформация новичков наказуемы.
+                    </p>
+                </div>
+                
+                <div class="rule-card bg-teal-900/50 rounded-lg p-6 border border-teal-700/50 transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-teal-800/50 p-3 rounded-full mr-4">
+                            <i class="fas fa-chart-bar text-teal-300 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white">Буст счетчика</h3>
+                    </div>
+                    <p class="text-teal-200">
+                        Искусственное накручивание статистики (убийств, времени игры) запрещено.
+                    </p>
+                </div>
+                
+                <div class="rule-card bg-teal-900/50 rounded-lg p-6 border border-teal-700/50 transition duration-300">
+                    <div class="flex items-center mb-4">                    
+                        <div class="bg-teal-800/50 p-3 rounded-full mr-4">
+                            <i class="fas fa-exclamation text-teal-300 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white">Реклама</h3>
+                    </div>
+                    <p class="text-teal-200">
+                        Реклама других серверов, проектов и услуг без согласования с администрацией запрещена.
+                    </p>
+                </div>
+                
+                <div class="rule-card bg-teal-900/50 rounded-lg p-6 border border-teal-700/50 transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-teal-800/50 p-3 rounded-full mr-4">
+                            <i class="fas fa-handshake text-teal-300 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white">Договорённости</h3>
+                    </div>
+                    <p class="text-teal-200">
+                        Договорённости между игроками считаются официальными только при свидетеле из администрации.
+                    </p>
+                </div>
+                
+                <div class="rule-card bg-teal-900/50 rounded-lg p-6 border border-teal-700/50 transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-teal-800/50 p-3 rounded-full mr-4">
+                            <i class="fas fa-mobile-alt text-teal-300 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white">Мобильные клиенты</h3>
+                    </div>
+                    <p class="text-teal-200">
+                        Использование мобильных клиентов с модификациями геймплея запрещено.
+                    </p>
+                </div>
+                
+                <div class="rule-card bg-teal-900/50 rounded-lg p-6 border border-teal-700/50 transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-teal-800/50 p-3 rounded-full mr-4">
+                            <i class="fas fa-random text-teal-300 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white">Эксплойты дуэлей</h3>
+                    </div>
+                    <p class="text-teal-200">
+                        Использование багов дуэльных арен (выход во время боя, подмена инвентаря) запрещено.
+                    </p>
+                </div>
                 <div class="rule-card bg-teal-900/50 rounded-lg p-6 border border-teal-700/50 transition duration-300">
                     <div class="flex items-center mb-4">
                         <div class="bg-teal-800/50 p-3 rounded-full mr-4">
@@ -204,14 +549,6 @@
                                         <i class="fas fa-check text-green-400 text-sm"></i>
                                     </div>
                                 </div>
-                                <p class="ml-3 text-teal-200">Моды мини-карты (Xaero's Minimap, JourneyMap)</p>
-                            </li>
-                            <li class="flex items-start">
-                                <div class="flex-shrink-0 mt-1">
-                                    <div class="bg-green-500/10 p-1 rounded-full">
-                                        <i class="fas fa-check text-green-400 text-sm"></i>
-                                    </div>
-                                </div>
                                 <p class="ml-3 text-teal-200">Моды отображения FPS и координат</p>
                             </li>
                             <li class="flex items-start">
@@ -237,6 +574,14 @@
                         </div>
                         
                         <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="bg-red-500/10 p-1 rounded-full">
+                                        <i class="fas fa-times text-red-400 text-sm"></i>
+                                    </div>
+                                </div>
+                                <p class="ml-3 text-teal-200">Моды мини-карты (Xaero's Minimap, JourneyMap) и их аналоги</p>
+                            </li>
                             <li class="flex items-start">
                                 <div class="flex-shrink-0 mt-1">
                                     <div class="bg-red-500/10 p-1 rounded-full">
